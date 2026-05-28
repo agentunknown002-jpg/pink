@@ -6,62 +6,59 @@
     <title>Written in the Stars</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #dfba6b; --bg: #0a0e1a; }
+        :root { --gold: #dfba6b; }
         body { 
-            margin: 0; background: radial-gradient(circle at center, #121b2d 0%, #0a0e1a 100%); 
+            margin: 0; 
+            background: radial-gradient(circle at center, #121b2d 0%, #0a0e1a 100%), url('https://www.transparenttextures.com/patterns/stardust.png'); 
             color: #f5f6fa; font-family: 'Cinzel', serif; display: flex; 
             justify-content: center; align-items: center; min-height: 100vh; padding: 20px;
         }
         .container { 
-            background: rgba(18, 27, 45, 0.95); padding: 50px 40px; border: 3px double var(--gold);
+            background: rgba(18, 27, 45, 0.95); padding: 50px 40px; 
+            border: 2px solid var(--gold); outline: 2px solid rgba(223, 186, 107, 0.3); outline-offset: -10px;
             text-align: center; width: 100%; max-width: 500px; position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
         }
         h1, h2 { color: var(--gold); letter-spacing: 4px; text-transform: uppercase; }
-        .names { font-family: 'Great Vibes', cursive; font-size: 3rem; color: #fff; margin: 30px 0; }
-        .btn-yes { 
-            background: #1c5238; border: 2px solid #a6c9a8; color: #c9ebd0; 
-            padding: 15px 30px; font-weight: bold; cursor: pointer; border-radius: 5px; 
-        }
-        .btn-no { 
-            background: #2c3e50; border: 1px solid #5d6d7e; color: #bdc3c7; 
-            padding: 15px 30px; cursor: pointer; border-radius: 5px;
-        }
+        .names { font-family: 'Great Vibes', cursive; font-size: 3rem; color: #fff; margin: 20px 0; }
+        
+        /* Premium Buttons */
+        .btn-jade { background: #1c5238; border: 2px solid #a6c9a8; color: #c9ebd0; padding: 15px 30px; font-weight: bold; cursor: pointer; border-radius: 5px; }
+        .btn-steel { background: #4a4a4a; border: 2px solid #8e8e8e; color: #bdc3c7; padding: 15px 30px; cursor: pointer; border-radius: 5px; }
         .hidden { display: none !important; }
     </style>
 </head>
 <body>
 
     <div id="proposalScreen" class="container">
-        <h1>To My Love</h1>
+        <h1>To <span id="pTarget"></span>...</h1>
         <p style="font-family: sans-serif; font-weight: 300; line-height: 1.8; margin: 30px 0;">
-            "Before the stars were lit, before time began, my soul was already searching for yours. 
-            In the quiet space between the galaxies, our paths were destined to entwine. 
-            Will you walk through eternity by my side?"
+            Among the billions of stars stretching across the night sky, paths crossed, and a beautiful story began. 
+            <span id="pSender"></span> has a question written just for you:
         </p>
-        
-        <h2>Will you marry me?</h2>
-        
+        <h2>Will you marry me? 🪐</h2>
         <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
-            <button class="btn-yes" onclick="showCert()">YES, ALWAYS 💚</button>
-            <button class="btn-no" onmouseover="moveNo(this)">NO</button>
+            <button class="btn-jade" onclick="showCert()">YES, ALWAYS 💚</button>
+            <button class="btn-steel" onmouseover="moveNo(this)">NO</button>
         </div>
     </div>
 
     <div id="certScreen" class="container hidden">
-        <h1>Cosmic Decree</h1>
-        <p>An unbreakable bond formed in the heavens.</p>
+        <h1>Cosmic Decree of Alliance</h1>
         <div class="names"><span id="cSender"></span> & <span id="cTarget"></span></div>
         <p>Decreed into history on <span id="cDate"></span></p>
     </div>
 
     <script>
         const params = new URLSearchParams(window.location.search);
+        // Load names from URL
+        document.getElementById('pTarget').innerText = params.get('to') || "My Love";
+        document.getElementById('pSender').innerText = params.get('from') || "Your Partner";
+
         function showCert() {
             document.getElementById('proposalScreen').classList.add('hidden');
             document.getElementById('certScreen').classList.remove('hidden');
-            document.getElementById('cSender').innerText = params.get('from') || "Us";
-            document.getElementById('cTarget').innerText = params.get('to') || "Together";
+            document.getElementById('cSender').innerText = params.get('from');
+            document.getElementById('cTarget').innerText = params.get('to');
             document.getElementById('cDate').innerText = params.get('date') || "Today";
         }
         function moveNo(btn) {
