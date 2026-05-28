@@ -6,8 +6,8 @@
     <style>
         body {
             margin: 0;
-            background: url('photo_2026-05-28-11-24-46.jpg') no-repeat center center fixed;
-            background-size: cover;
+            /* Starry Space Gradient */
+            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
             color: #f5f6fa; 
             font-family: 'Cinzel', serif;
             display: flex; 
@@ -17,12 +17,28 @@
         }
 
         .container {
-            /* This is the change: setting to transparent */
-            background: transparent !important; 
+            /* Elegant semi-transparent border box */
+            background: rgba(255, 255, 255, 0.05);
             padding: 50px;
             border: 2px solid #dfba6b;
             text-align: center;
             max-width: 500px;
+            box-shadow: 0 0 20px rgba(223, 186, 107, 0.2);
+        }
+
+        button {
+            background: transparent;
+            color: #dfba6b;
+            border: 1px solid #dfba6b;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #dfba6b;
+            color: #090a0f;
         }
 
         .hidden { display: none !important; }
