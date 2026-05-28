@@ -2,53 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Written in the Stars</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Kyal Sin Ko Ko</title>
     <style>
-        body {
+        body, html {
             margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #bg {
+            width: 100vw;
             height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-size: cover;
+            background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            /* Points to renamed proposal.jpg */
-            background-image: url('proposal.jpg');
+            background-color: black; /* Space around image */
+            transition: background-image 0.5s ease;
+            cursor: pointer;
         }
-
-        .container {
-            padding: 40px;
-            text-align: center;
-            max-width: 500px;
-            color: white;
-            background: rgba(0, 0, 0, 0.3);
-            border: 2px solid #dfba6b;
-        }
-
-        .hidden { display: none !important; }
     </style>
 </head>
 <body>
 
-    <div id="proposalScreen" class="container">
-        <h1>To Kyal Sin Ko Ko...</h1>
-        <p>Among the billions of stars, paths crossed. Khun Ye Naung has a question:</p>
-        <h2>WILL YOU MARRY ME?</h2>
-        <button onclick="showCert()">YES, ALWAYS</button>
-    </div>
-
-    <div id="certScreen" class="container hidden">
-        <h1>COSMIC DECREE OF ALLIANCE</h1>
-        <p>Khun Ye Naung & Kyal Sin Ko Ko</p>
-    </div>
+    <div id="bg" style="background-image: url('1000012138.png');" onclick="showCert()"></div>
 
     <script>
         function showCert() {
-            document.getElementById('proposalScreen').classList.add('hidden');
-            document.getElementById('certScreen').classList.remove('hidden');
-            /* Points to renamed certificate.jpg */
-            document.body.style.backgroundImage = "url('certificate.jpg')";
+            // Switches the image to the certificate
+            document.getElementById('bg').style.backgroundImage = "url('1000012137.png')";
         }
     </script>
 </body>
