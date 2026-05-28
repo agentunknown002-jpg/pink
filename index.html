@@ -13,18 +13,16 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            transition: background 0.5s ease;
-            /* Using your file directly */
+            /* Matches your actual file name */
             background-image: url('1000012138.png');
         }
 
         .container {
-            padding: 50px;
+            padding: 40px;
             text-align: center;
-            max-width: 600px;
+            max-width: 500px;
             color: white;
-            /* Removed solid color, using light transparent overlay */
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
             border: 2px solid #dfba6b;
         }
 
@@ -35,7 +33,7 @@
 
     <div id="proposalScreen" class="container">
         <h1>To Kyal Sin Ko Ko...</h1>
-        <p>Among the billions of stars stretching across the night sky, paths crossed, and a beautiful story began. Khun Ye Naung has a question written just for you:</p>
+        <p>Among the billions of stars, paths crossed. Khun Ye Naung has a question:</p>
         <h2>WILL YOU MARRY ME?</h2>
         <button onclick="showCert()">YES, ALWAYS</button>
     </div>
@@ -49,7 +47,7 @@
         function showCert() {
             document.getElementById('proposalScreen').classList.add('hidden');
             document.getElementById('certScreen').classList.remove('hidden');
-            // Changes background to the second PNG on click
+            /* Matches your actual file name */
             document.body.style.backgroundImage = "url('1000012137.png')";
         }
     </script>
