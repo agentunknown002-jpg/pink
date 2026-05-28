@@ -6,44 +6,48 @@
     <style>
         body {
             margin: 0;
-            /* Using your uploaded image as the background */
+            /* Replace with your exact filename from your repository */
             background: url('photo_2026-05-28-11-24-46.jpg') no-repeat center center fixed;
             background-size: cover;
-            color: #f5f6fa; font-family: 'Cinzel', serif;
-            display: flex; justify-content: center; align-items: center; min-height: 100vh;
+            color: #f5f6fa; 
+            font-family: 'Cinzel', serif;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh;
         }
+
         .container {
-    background: transparent;
-    padding: 50px;
-    border: 2px solid #dfba6b;
-    text-align: center;
-    max-width: 500px;
-}
+            background: transparent;
             padding: 50px;
             border: 2px solid #dfba6b;
             text-align: center;
             max-width: 500px;
         }
+
         .hidden { display: none !important; }
     </style>
 </head>
 <body>
-    <div id="proposal" class="container">
+
+    <div id="proposalScreen" class="container">
         <h1>To Kyal Sin Ko Ko...</h1>
         <p>Among the billions of stars stretching across the night sky, paths crossed, and a beautiful story began. Khun Ye Naung has a question written just for you:</p>
         <h2>WILL YOU MARRY ME?</h2>
-        <button onclick="showCert()">YES, ALWAYS</button>
+        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
+            <button onclick="showCert()">YES, ALWAYS</button>
+        </div>
     </div>
 
-    <div id="cert" class="container hidden">
+    <div id="certScreen" class="container hidden">
         <h1>COSMIC DECREE OF ALLIANCE</h1>
         <p>Khun Ye Naung & Kyal Sin Ko Ko</p>
     </div>
 
     <script>
         function showCert() {
-            document.getElementById('proposal').classList.add('hidden');
-            document.getElementById('cert').classList.remove('hidden');
+            document.getElementById('proposalScreen').classList.add('hidden');
+            document.getElementById('certScreen').classList.remove('hidden');
         }
     </script>
 </body>
