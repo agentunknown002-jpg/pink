@@ -6,12 +6,9 @@
     <style>
         body {
             margin: 0;
-            /* This is the key line to display your image */
-            background-image: url('photo_2026-05-28-11-24-46.jpg');
+            /* This line sets your uploaded image as the background */
+            background: url('photo_2026-05-28-11-24-46.jpg') no-repeat center center fixed;
             background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
             color: #f5f6fa; 
             font-family: 'Cinzel', serif;
             display: flex; 
@@ -21,8 +18,8 @@
         }
 
         .container {
-            /* This transparency allows the stars to show through */
-            background: rgba(18, 27, 45, 0.4); 
+            /* Changed to transparent to ensure the background image is visible */
+            background: transparent; 
             padding: 50px;
             border: 2px solid #dfba6b;
             text-align: center;
