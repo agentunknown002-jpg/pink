@@ -14,17 +14,18 @@
             background-position: center;
             background-repeat: no-repeat;
             transition: background 0.5s ease;
+            /* Matches your first uploaded PNG */
+            background-image: url('1000012138.png');
         }
-
-        /* Set the first image as the initial background */
-        #proposalScreen { background: url('1000012138_5.png'); }
-        #certScreen { background: url('1000012137_5.png'); }
 
         .container {
             padding: 50px;
             text-align: center;
             max-width: 600px;
             color: white;
+            /* Semi-transparent background for text readability */
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid #dfba6b;
         }
 
         .hidden { display: none !important; }
@@ -48,8 +49,8 @@
         function showCert() {
             document.getElementById('proposalScreen').classList.add('hidden');
             document.getElementById('certScreen').classList.remove('hidden');
-            // Update body background to the second image
-            document.body.style.backgroundImage = "url('1000012137_5.png')";
+            // Changes background to the second PNG on click
+            document.body.style.backgroundImage = "url('1000012137.png')";
         }
     </script>
 </body>
