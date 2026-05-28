@@ -306,11 +306,11 @@
         <h2 style="margin-top:0; margin-bottom: 25px; font-size: 20px;">Cosmic Order Setup</h2>
         <div class="form-group">
             <label>Your Full Name</label>
-            <input type="text" id="yourName" placeholder="E.g., Khun Ye Naung">
+            <input type="text" id="yourName" value="Khun Ye Naung" placeholder="E.g., Khun Ye Naung">
         </div>
         <div class="form-group">
             <label>Their Full Name</label>
-            <input type="text" id="theirName" placeholder="E.g., Kyal Sin Ko Ko">
+            <input type="text" id="theirName" value="Kyal Sin Ko Ko" placeholder="E.g., Kyal Sin Ko Ko">
         </div>
         <div class="form-group">
             <label>Date of Alliance</label>
@@ -391,9 +391,9 @@
     </div>
 
     <script>
-        // Set the picker safely to current date
+        // Set the picker safely to default anniversary date: April 26, 2025
         try {
-            document.getElementById('certDate').valueAsDate = new Date();
+            document.getElementById('certDate').value = "2025-04-26";
         } catch(e) {}
 
         function generateProposalLink() {
@@ -407,7 +407,7 @@
             }
 
             const baseUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
-            const finalUrl = baseUrl + '?from=' + encodeURIComponent(yNameInput) + '&to=' + encodeURIComponent(tNameInput) + '&date=' + encodeURIComponent(dateInput || new Date().toISOString().split('T')[0]);
+            const finalUrl = baseUrl + '?from=' + encodeURIComponent(yNameInput) + '&to=' + encodeURIComponent(tNameInput) + '&date=' + encodeURIComponent(dateInput || "2025-04-26");
 
             document.getElementById('shareUrl').innerText = finalUrl;
             document.getElementById('shareSection').style.display = 'block';
@@ -434,7 +434,7 @@
             document.getElementById('proposalTarget').innerText = decodeURIComponent(toParam);
             document.getElementById('proposalSender').innerText = decodeURIComponent(fromParam);
         }function acceptProposal() {
-            document.getElementById('proposalScreen').style.style.animation = "none"; 
+            // FIXED: Cleaned up dual naming syntax error causing execution freeze
             document.getElementById('proposalScreen').style.display = 'none';
             document.getElementById('certificateWrapper').style.display = 'block';
 
@@ -442,8 +442,16 @@
             document.getElementById('certTheirName').innerText = decodeURIComponent(toParam);
             
             try {
-                var rawDate = new Date(decodeURIComponent(dateParam));
-                // Formats elegantly like "April 26, 2026"
+                // Ensure correct formatting for timezone inputs
+                var dateString = decodeURIComponent(dateParam);
+                var parts = dateString.split('-');
+                var rawDate;
+                if(parts.length === 3) {
+                    rawDate = new Date(parts[0], parts[1] - 1, parts[2]);
+                } else {
+                    rawDate = new Date(dateString);
+                }
+                
                 document.getElementById('certFinalDate').innerHTML = <span style="color: #dfba6b; margin-right:5px;">✦</span>  + rawDate.toLocaleDateString('en-US', {
                     year: 'numeric', month: 'long', day: 'numeric'
                 }).toUpperCase() +  <span style="color: #dfba6b; margin-left:5px;">✦</span>;
@@ -452,7 +460,6 @@
             }
         }
 
-        // Smoothly running dodge mechanic targeting window parameters accurately
         function dodgeButton() {
             const noBtn = document.getElementById('noBtn');
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 60);
