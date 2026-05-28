@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Proposal</title>
     <style>
-        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: black; }
         
         #stage {
             width: 100vw;
             height: 100vh;
-            /* This is the first image you want to show */
-            background-image: url('proposal.jpg');
+            /* Now loading the Certificate first */
+            background-image: url('certificate.jpg');
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
@@ -24,8 +24,8 @@
 
     <script>
         function swapImage() {
-            // This is the second image (the certificate)
-            document.getElementById('stage').style.backgroundImage = "url('certificate.jpg')";
+            // Now swapping to the Proposal image
+            document.getElementById('stage').style.backgroundImage = "url('proposal.jpg')";
         }
     </script>
 </body>
