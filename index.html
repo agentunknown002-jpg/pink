@@ -9,13 +9,12 @@
         #stage {
             width: 100vw;
             height: 100vh;
-            /* If this shows RED, the filename is wrong */
-            background-color: red; 
-            /* Updated to .jpg to match your files */
-            background-image: url('1000012138.jpg');
+            /* Points to the files in your list */
+            background-image: url('proposal.jpg');
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
+            background-color: black;
             cursor: pointer;
         }
     </style>
@@ -26,8 +25,8 @@
 
     <script>
         function swapImage() {
-            // Updated to .jpg
-            document.getElementById('stage').style.backgroundImage = "url('1000012137.jpg')";
+            // Points to the files in your list
+            document.getElementById('stage').style.backgroundImage = "url('certificate.jpg')";
         }
     </script>
 </body>
