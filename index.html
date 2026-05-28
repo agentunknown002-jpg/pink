@@ -4,77 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Written in the Stars</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #dfba6b; --bg: #0a0e1a; }
         body { 
             margin: 0; background: radial-gradient(circle at center, #121b2d 0%, #0a0e1a 100%); 
-            color: #f5f6fa; font-family: 'Montserrat', sans-serif; 
-            display: flex; justify-content: center; align-items: center; min-height: 100vh; 
+            color: #f5f6fa; font-family: 'Cinzel', serif; display: flex; 
+            justify-content: center; align-items: center; min-height: 100vh; padding: 20px;
         }
-
-        /* Premium Frame Container */
         .container { 
-            background: rgba(18, 27, 45, 0.85); padding: 50px; border-radius: 4px; 
-            border: 3px double var(--gold); text-align: center; width: 90%; max-width: 450px; 
-            position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            background: rgba(18, 27, 45, 0.95); padding: 50px 40px; border: 3px double var(--gold);
+            text-align: center; width: 100%; max-width: 500px; position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
         }
-
-        h1, h2 { font-family: 'Cinzel', serif; color: var(--gold); letter-spacing: 3px; }
-        
-        /* The buttons from your screenshot */
-        .btn-yes { background: #1c5238; border: 2px solid #a6c9a8; color: #c9ebd0; padding: 15px 30px; font-weight: bold; cursor: pointer; }
-        .btn-no { background: #2c3e50; border: 1px solid #5d6d7e; color: #bdc3c7; padding: 15px 30px; cursor: pointer; }
-        
+        h1, h2 { color: var(--gold); letter-spacing: 4px; text-transform: uppercase; }
+        .names { font-family: 'Great Vibes', cursive; font-size: 3rem; color: #fff; margin: 30px 0; }
+        .btn-yes { 
+            background: #1c5238; border: 2px solid #a6c9a8; color: #c9ebd0; 
+            padding: 15px 30px; font-weight: bold; cursor: pointer; border-radius: 5px; 
+        }
+        .btn-no { 
+            background: #2c3e50; border: 1px solid #5d6d7e; color: #bdc3c7; 
+            padding: 15px 30px; cursor: pointer; border-radius: 5px;
+        }
         .hidden { display: none !important; }
-        
-        .decorative-corners {
-            position: absolute; width: 20px; height: 20px; border: 1px solid var(--gold);
-        }
-        .tl { top: 15px; left: 15px; border-right: none; border-bottom: none; }
-        .tr { top: 15px; right: 15px; border-left: none; border-bottom: none; }
     </style>
 </head>
 <body>
 
     <div id="proposalScreen" class="container">
-        <div class="decorative-corners tl"></div><div class="decorative-corners tr"></div>
+        <h1>To My Love</h1>
+        <p style="font-family: sans-serif; font-weight: 300; line-height: 1.8; margin: 30px 0;">
+            "Before the stars were lit, before time began, my soul was already searching for yours. 
+            In the quiet space between the galaxies, our paths were destined to entwine. 
+            Will you walk through eternity by my side?"
+        </p>
         
-        <h1>TO <span id="targetName">...</span></h1>
-        <p style="font-weight: 300; line-height: 1.8;">Among the billions of stars stretching across the night sky, paths crossed, and a beautiful story began. <span id="senderName"></span> has a question written just for you:</p>
+        <h2>Will you marry me?</h2>
         
-        <h2 style="margin: 40px 0;">WILL YOU MARRY ME?</h2>
-        
-        <div style="display: flex; gap: 15px; justify-content: center;">
+        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
             <button class="btn-yes" onclick="showCert()">YES, ALWAYS 💚</button>
             <button class="btn-no" onmouseover="moveNo(this)">NO</button>
         </div>
     </div>
 
     <div id="certScreen" class="container hidden">
-        <h1>COSMIC DECREE</h1>
-        <div style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 30px 0;">
-            <span id="cSender"></span> & <span id="cTarget"></span>
-        </div>
-        <p>Decreed into history on April 26, 2025</p>
+        <h1>Cosmic Decree</h1>
+        <p>An unbreakable bond formed in the heavens.</p>
+        <div class="names"><span id="cSender"></span> & <span id="cTarget"></span></div>
+        <p>Decreed into history on <span id="cDate"></span></p>
     </div>
 
     <script>
         const params = new URLSearchParams(window.location.search);
-        document.getElementById('targetName').innerText = params.get('to') || "MY LOVE";
-        document.getElementById('senderName').innerText = params.get('from') || "YOUR PARTNER";
-
         function showCert() {
             document.getElementById('proposalScreen').classList.add('hidden');
             document.getElementById('certScreen').classList.remove('hidden');
-            document.getElementById('cSender').innerText = params.get('from');
-            document.getElementById('cTarget').innerText = params.get('to');
+            document.getElementById('cSender').innerText = params.get('from') || "Us";
+            document.getElementById('cTarget').innerText = params.get('to') || "Together";
+            document.getElementById('cDate').innerText = params.get('date') || "Today";
         }
-
         function moveNo(btn) {
             btn.style.position = 'absolute';
-            btn.style.left = Math.random() * 70 + '%';
-            btn.style.top = Math.random() * 70 + '%';
+            btn.style.left = Math.random() * 80 + '%';
+            btn.style.top = Math.random() * 80 + '%';
         }
     </script>
 </body>
