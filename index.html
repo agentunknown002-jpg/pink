@@ -2,37 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Kyal Sin Ko Ko</title>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        #bg {
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; }
+        
+        #stage {
             width: 100vw;
             height: 100vh;
+            /* Using your specific PNG file names */
+            background-image: url('1000012138.png');
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            background-color: black; /* Space around image */
-            transition: background-image 0.5s ease;
             cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-    <div id="bg" style="background-image: url('1000012138.png');" onclick="showCert()"></div>
+    <div id="stage" onclick="swapImage()"></div>
 
     <script>
-        function showCert() {
-            // Switches the image to the certificate
-            document.getElementById('bg').style.backgroundImage = "url('1000012137.png')";
+        function swapImage() {
+            // Swaps to the second image
+            document.getElementById('stage').style.backgroundImage = "url('1000012137.png')";
         }
     </script>
 </body>
