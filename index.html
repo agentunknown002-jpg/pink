@@ -2,71 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Written in the Stars - Celestial Keepsake</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <title>Written in the Stars</title>
     <style>
-        :root { --gold: #dfba6b; }
-        body { 
-            margin: 0; background: radial-gradient(circle at center, #121b2d 0%, #0a0e1a 100%); 
-            color: #f5f6fa; font-family: 'Cinzel', serif; display: flex; 
-            justify-content: center; align-items: center; min-height: 100vh; padding: 20px;
+        body {
+            margin: 0;
+            /* Using your uploaded image as the background */
+            background: url('photo_2026-05-28-11-24-46.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #f5f6fa; font-family: 'Cinzel', serif;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh;
         }
-        .container { 
-            background: rgba(18, 27, 45, 0.95); padding: 50px 40px; 
-            border: 2px solid var(--gold); outline: 2px solid rgba(223, 186, 107, 0.3); 
-            outline-offset: -10px; text-align: center; width: 100%; max-width: 480px; 
-            position: relative; box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        .container {
+            background: rgba(18, 27, 45, 0.85);
+            padding: 50px;
+            border: 2px solid #dfba6b;
+            text-align: center;
+            max-width: 500px;
         }
-        h1, h2 { color: var(--gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
-        .names { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: #fff; margin: 30px 0; line-height: 1.2; }
-        .btn-jade { background: linear-gradient(135deg, #16462d, #1c5238); border: 2px solid #a6c9a8; color: #c9ebd0; padding: 15px 30px; font-weight: bold; cursor: pointer; border-radius: 4px; }
-        .btn-steel { background: linear-gradient(135deg, #2c3e50, #4a4a4a); border: 2px solid #8e8e8e; color: #bdc3c7; padding: 15px 30px; cursor: pointer; border-radius: 4px; }
         .hidden { display: none !important; }
     </style>
 </head>
 <body>
-
-    <div id="proposalScreen" class="container">
-        <h1>To <span id="pTarget"></span>...</h1>
-        <p style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; margin: 30px 0; font-size: 15px;">
-            Among the billions of stars stretching across the night sky, paths crossed, and a beautiful story began. 
-            <span id="pSender"></span> has a question written just for you:
-        </p>
-        <h2>Will you marry me? 🪐</h2>
-        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
-            <button class="btn-jade" onclick="showCert()">YES, ALWAYS 💚</button>
-            <button class="btn-steel" id="noBtn" onmouseover="moveNo()">NO</button>
-        </div>
+    <div id="proposal" class="container">
+        <h1>To Kyal Sin Ko Ko...</h1>
+        <p>Among the billions of stars stretching across the night sky, paths crossed, and a beautiful story began. Khun Ye Naung has a question written just for you:</p>
+        <h2>WILL YOU MARRY ME?</h2>
+        <button onclick="showCert()">YES, ALWAYS</button>
     </div>
 
-    <div id="certScreen" class="container hidden">
+    <div id="cert" class="container hidden">
         <h1>COSMIC DECREE OF ALLIANCE</h1>
-        <p style="font-size: 12px; letter-spacing: 3px;">WRITTEN IN THE STARS</p>
-        <div class="names"><span id="cSender"></span><br>&<br><span id="cTarget"></span></div>
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 14px;">Decreed into history on April 26, 2025</p>
+        <p>Khun Ye Naung & Kyal Sin Ko Ko</p>
     </div>
 
     <script>
-        // Mapping your specific names from the screenshot
-        const sender = "Khun Ye Naung";
-        const target = "Kyal Sin Ko Ko";
-
-        document.getElementById('pTarget').innerText = target;
-        document.getElementById('pSender').innerText = sender;
-
         function showCert() {
-            document.getElementById('proposalScreen').classList.add('hidden');
-            document.getElementById('certScreen').classList.remove('hidden');
-            document.getElementById('cSender').innerText = sender;
-            document.getElementById('cTarget').innerText = target;
-        }
-
-        function moveNo() {
-            const btn = document.getElementById('noBtn');
-            btn.style.position = 'absolute';
-            btn.style.left = Math.random() * 70 + '%';
-            btn.style.top = Math.random() * 70 + '%';
+            document.getElementById('proposal').classList.add('hidden');
+            document.getElementById('cert').classList.remove('hidden');
         }
     </script>
 </body>
